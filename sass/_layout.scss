@@ -1,0 +1,34 @@
+.container {
+  min-height: 50rem;
+  max-width: 120rem;
+  /* auto means that left and right margin will take auto margin
+  according to the width of the element and the width of the container.*/
+  margin: 8rem auto;
+
+  background-color: var(--color-grey-light-2);
+  box-shadow: var(--shadow-dark);
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  
+  //flex grow, flex shrink, flex basis
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+  background-color: orangered;
+
+  //'flex: 1' means grow as much as it can and take up all the space
+  flex: 1;
+}
