@@ -5,7 +5,7 @@
   according to the width of the element and the width of the container.*/
   margin: 8rem auto;
 
-  background-color: var(--color-grey-light-2);
+  background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
 }
 
@@ -13,7 +13,7 @@
   font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: var(--color-grey-light-2);
+  border-bottom: 1px solid var(--color-grey-light-2);
 
   justify-content: space-between;
 
@@ -40,7 +40,6 @@
 }
 
 .hotel-view {
-  background-color: orangered;
   height: 80rem;
   //'flex: 1' means grow as much as it can and take up all the space
   flex: 1;

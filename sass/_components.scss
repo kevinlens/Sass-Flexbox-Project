@@ -1,11 +1,11 @@
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // LOGO
 .logo {
   height: 3.25rem;
   margin-left: 2rem;
 }
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // SEARCH
 
 .search {
@@ -78,14 +78,14 @@
   }
 }
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // USER NAVIGATION
 .user-nav {
   display: flex;
   //Basically align-items is the same as justify-content but in opposite directions
   align-items: center;
 
-  //stretch the items in cross axis to fill entire space
+  //stretch the items in cross axis to fill entire space (this is basically overriding the 'align-items: center' of the parent element)
   align-self: stretch;
 
   //select all the direct children of .user-nav
@@ -138,11 +138,10 @@
   }
 }
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // SIDE NAVIGATION
 
 .side-nav {
-
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
@@ -152,7 +151,7 @@
 
     // all the children, except the last one
     &:not(:last-child) {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
   }
 
@@ -165,16 +164,17 @@
     width: 3px;
     background-color: var(--color-primary);
 
+    //makes it so that this element does not yet exist/show
     transform: scaleY(0);
-    //takes .2s to finish
-    transition: transform .2s, 
-                //takes .2s delay before starting, .4s to finish
-                width .4s cubic-bezier(1,0,0,1) .2s,
-                background-color .1s;
 
+    //takes .2s to finish
+    transition: transform 0.2s,
+      //takes .2s delay before starting, .4s to finish
+      width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
 
     //Is the default that's why is scales at the center
-    // transform-origin: center; 
+    // transform-origin: center;
   }
 
   &__item:hover::before,
@@ -189,7 +189,7 @@
   }
 
   ///////////////////////
-  
+
   &__link:link,
   &__link:visited {
     position: relative;
@@ -217,7 +217,7 @@
   }
 }
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // LEGAL TEXT
 
 .legal {
@@ -225,4 +225,123 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+///////////////////////////////////////////////////////////////////
+// GALLERY
+
+.gallery {
+  display: flex;
+
+  &__photo {
+    display: block;
+    width: 100%;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+// HOTEL OVERVIEW
+
+.overview {
+  border-bottom: 1px solid var(--color-grey-light-2);
+  display: flex;
+  //Basically align-items is the same as justify-content but in opposite directions
+  align-items: center;
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+  }
+
+  &__stars {
+    //display flex here to make the stars vertically align with EXACT precision
+    display: flex;
+    margin-right: auto;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+
+    //To be able to change the color of the SVG!!
+    fill: var(--color-primary);
+  }
+
+  &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: #fff;
+    padding: 0 2.25rem;
+    //stretch the items in cross axis to fill entire space (this is basically overriding the 'align-items: center' of the parent element)
+    align-self: stretch;
+
+    display: flex;
+    //change default direction(horizontally) of 'flex' to align vertically
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
+  }
+
+  &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}
+
+///////////////////////////////////////////////////////////////////
+// BUTTON INLINE
+
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  //currentColor here means to use the same color used for the text color(even if the text color changes upon hover)
+  border-bottom: 1px solid currentColor;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }
