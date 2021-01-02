@@ -146,12 +146,27 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    margin: 0;
+    display: flex;
+  }
+
   &__item {
     position: relative;
 
     // all the children, except the last one
-    &:not(:last-child) {
+    &:not(:last-child) { 
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      // give all the items the ability to grow as much as they can, but occupy the same amount since they share the same value
+      //'flex: 1' means grow as much as it can and take up all the space
+      flex: 1;
     }
   }
 
@@ -205,6 +220,12 @@
     //Basically align-items is the same as justify-content but in opposite directions
     // To vertically align
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+  
   }
 
   &__icon {
@@ -225,6 +246,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -428,6 +453,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -436,7 +465,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -449,10 +478,14 @@
   box-shadow: var(--shadow-light);
   padding: 3rem;
   margin-bottom: 3.5rem;
-
   overflow: hidden;
 
   position: relative;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-right: 4.5rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -522,6 +555,10 @@
   padding: 3.5rem 0;
   text-align: center;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
     font-size: 2rem;
     font-weight: 300;
@@ -554,7 +591,6 @@
     height: 100%;
     width: 100%;
     transition: all 0.2s;
-
   }
 
   &__visible {
@@ -588,5 +624,4 @@
     outline: none;
     animation: pulsate 1s infinite;
   }
-
 }
