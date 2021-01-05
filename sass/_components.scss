@@ -19,6 +19,16 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    //In layout.scss file the '.header' also plays a role with the order:1 here
+    // All the elements have an order of 0, if you set any to 1 it makes that element move to the end
+    order: 1;
+    //flex grow, flex shrink, flex basis( initial main size of a flex item )
+    //100% to take up the entire space
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -155,7 +165,7 @@
     position: relative;
 
     // all the children, except the last one
-    &:not(:last-child) { 
+    &:not(:last-child) {
       margin-bottom: 0.5rem;
 
       @media only screen and (max-width: $bp-medium) {
@@ -225,7 +235,11 @@
       justify-content: center;
       padding: 2rem;
     }
-  
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -235,6 +249,13 @@
 
     //basically use the same color as the parent element (or the link in this case)
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -279,6 +300,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -320,17 +346,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 

@@ -26,6 +26,14 @@
   display: flex;
   //Basically  align-items is the same as  justify-content but in opposite directions
   align-items: center;
+  
+  @media only screen and (max-width: $bp-smallest) {
+    //allows items to wrap to a new line if they don't have enough space in container
+    flex-wrap: wrap;
+    height: 11rem;
+    //look up align-content vs align-items 
+    align-content: space-around;
+  }
 }
 
 .content {
@@ -67,6 +75,10 @@
   @media only screen and (max-width: $bp-medium) {
     padding: 3rem;
   }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 .description {
@@ -80,6 +92,11 @@
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem;
     margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0rem;
+    margin-bottom: 3rem;
   }
 }
 
